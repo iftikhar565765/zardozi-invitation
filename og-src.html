@@ -124,8 +124,10 @@
   .corner--br { right: -30px; bottom: -40px; transform: scaleX(-1) rotate(9deg); }
   .flame {
     position: absolute;
-    width: 240px;
-    opacity: .96;
+    width: 200px;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
+    mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
   }
   .flame--l { left: 60px; bottom: -8px; }
   .flame--r { right: 60px; bottom: -8px; transform: scaleX(-1); }
@@ -135,8 +137,8 @@
   <div class="stage">
     <img class="corner corner--bl" src="assets/art/roses-cluster.png" alt="">
     <img class="corner corner--br" src="assets/art/roses-cluster.png" alt="">
-    <img class="flame flame--l" src="assets/art/diya-glow.png" alt="">
-    <img class="flame flame--r" src="assets/art/diya-glow.png" alt="">
+    <img class="flame flame--l" src="assets/art/diya-lit.jpg" alt="">
+    <img class="flame flame--r" src="assets/art/diya-lit.jpg" alt="">
     <img class="toran" src="assets/art/toran.png" alt="">
     <div class="card">
       <p class="shloka">॥ श्री गणेशाय नमः ॥</p>
