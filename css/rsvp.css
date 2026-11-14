@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════════════════
+   ZARDOZI · rsvp.css — the reply card
+   ---------------------------------------------------------------
+   A keepsake reply plate on warm ivory: ink fields, paisley
+   diamond choices, foil submit button. Same machinery, new silk.
+   ═══════════════════════════════════════════════════════════════ */
+
+.rsvp-form {
+  text-align: left;
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.field { display: grid; gap: .45rem; }
+
+.field label,
+.field-legend {
+  font-family: var(--font-caps);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--champagne-soft);
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: .98rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper-raised) 70%, var(--ivory) 30%);
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  outline: none;
+  resize: vertical;
+  transition: border-color .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.field input:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--champagne-soft);
+  box-shadow: 0 0 0 3px var(--gold-faint);
+  outline: none;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--charcoal); font-style: italic; }
+
+/* choices — paisley diamonds */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  padding-top: .2rem;
+}
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+}
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice .diamond {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  transform: rotate(45deg);
+  border: 1.4px solid var(--champagne-soft);
+  background: transparent;
+  transition: background-color .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.choice input:checked + .diamond {
+  background: var(--burgundy);
+  box-shadow:
+    inset 0 0 0 2.5px var(--paper-raised),
+    inset 0 0 0 9px var(--burgundy);
+}
+.choice input:focus-visible + .diamond {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.choice .text { line-height: 1.3; }
+
+.field--split input { max-width: 130px; }
+
+.field-error {
+  font-family: var(--font-caps);
+  font-size: .74rem;
+  color: #A33A2E;
+}
+.field [aria-invalid="true"],
+.field.invalid input,
+.field.invalid textarea { border-color: #A33A2E; }
+
+.rsvp-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.rsvp-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: .4rem;
+}
+
+.rsvp-note {
+  font-size: .8rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 44ch;
+  text-align: center;
+}
+.rsvp-note strong { color: var(--ink); }
+
+.rsvp-status { min-height: 1.2em; font-size: .86rem; color: var(--olive-deep); }
+
+/* the preview — a sealed receipt */
+.rsvp-preview {
+  margin-top: 1.6rem;
+  padding: clamp(1.4rem, 3.4vw, 2rem);
+  background: var(--paper-wash);
+  box-shadow: inset 0 0 0 1px var(--paper-line);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+.script-intro {
+  font-size: clamp(1.7rem, 4.6vw, 2.2rem);
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.rsvp-summary {
+  display: grid;
+  gap: .55rem;
+  margin: 1.3rem auto 0;
+  max-width: 46ch;
+  text-align: left;
+}
+.rsvp-summary > div { display: flex; gap: 12px; align-items: baseline; }
+.rsvp-summary dt {
+  flex: 0 0 auto;
+  font-family: var(--font-caps);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--champagne-soft);
+}
+.rsvp-summary dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: .94rem;
+  color: var(--ink);
+}

@@ -1,0 +1,294 @@
+/* ═══════════════════════════════════════════════════════════════
+   ZARDOZI · base.css — foundations of the suite
+   ---------------------------------------------------------------
+   Grand Rozha One display, warm Cardo prose, flowing Tangerine
+   names, letterspaced Karla labels, gold thread-work rules and
+   the brocade lattice that repeats through the velvet scenes.
+   Every colour is a token overwritten at runtime by main.js.
+   ═══════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background-color: var(--night-deep);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; }
+
+h1, h2, h3, h4, p, figure, blockquote, ul, ol, dl, fieldset { margin: 0; padding: 0; }
+fieldset { border: 0; min-inline-size: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: color-mix(in srgb, var(--crimson) 32%, transparent); }
+
+/* ═══ THE SUITE — the whole walk ════════════════════════════════ */
+
+.sheet {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--ivory);
+}
+
+/* ═══ TYPE ══════════════════════════════════════════════════════ */
+
+.script { font-family: var(--font-script); font-weight: 400; line-height: 1.05; }
+
+/* Tangerine runs small and fine — the names get weight and air */
+h1.script, .opening__names, .closing-names, .std-crossing {
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.display {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: 1.14;
+  letter-spacing: .01em;
+  color: var(--wine);
+}
+.display em {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.18em;
+  color: var(--burgundy);
+  display: block;
+  margin-top: .06em;
+}
+
+.prose {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  line-height: 1.72;
+  color: var(--ink);
+}
+
+.prose--dropcap::first-letter {
+  font-family: var(--font-editorial);
+  font-size: 3.1em;
+  line-height: .82;
+  float: left;
+  padding: .08em .14em 0 0;
+  color: var(--burgundy);
+}
+
+.hand {
+  font-family: var(--font-hand);
+  font-size: 1.16rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.label-caps {
+  font-family: var(--font-caps);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  font-family: var(--font-caps);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--scene-gold);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.kicker::before,
+.kicker::after {
+  content: "";
+  flex: 0 0 clamp(26px, 6vw, 46px);
+  height: 1px;
+  background: var(--line);
+}
+.kicker--center { justify-content: center; }
+.kicker--ink { color: var(--scene-accent); }
+
+.chapter-num {
+  font-family: var(--font-editorial);
+  font-size: clamp(4.6rem, 12vw, 7.4rem);
+  line-height: 1;
+  color: var(--gold-faint);
+  position: absolute;
+  top: -.28em;
+  inset-inline-start: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.small { font-size: var(--fs-small); color: var(--ink-soft); }
+
+/* ═══ SHARED ORNAMENT STROKES ═══════════════════════════════════ */
+
+.orn-line { stroke: var(--champagne-soft); fill: none; stroke-width: 1.6; }
+.orn-line--thin { stroke-width: 1; }
+.rule { stroke: var(--paper-line); fill: none; stroke-width: 1; }
+.dot-gold { fill: var(--champagne-soft); }
+.orn-dot { fill: var(--champagne-soft); }
+
+/* ═══ THE BROCADE — velvet-night lattice ════════════════════════
+   A repeating lotus-bud ogee: buds chained by gold thread, warm
+   and dim — the zardozi counterpart of palace jaali.             */
+
+.brocade-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='90'%3E%3Cg fill='none' stroke='%23CDA45E' stroke-opacity='.08'%3E%3Cpath d='M36 6 C 46 22 48 34 36 48 C 24 34 26 22 36 6 Z'/%3E%3Cpath d='M36 18 C 41 27 42 34 36 42 C 30 34 31 27 36 18 Z'/%3E%3Cpath d='M0 48 C 8 34 10 22 0 8 M72 48 C 64 34 62 22 72 8'/%3E%3Cpath d='M36 48 C 46 62 48 74 36 88 C 24 74 26 62 36 48 Z'/%3E%3Ccircle cx='36' cy='4' r='1.6'/%3E%3Ccircle cx='36' cy='88' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+.brocade-ink {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='90'%3E%3Cg fill='none' stroke='%237C2537' stroke-opacity='.06'%3E%3Cpath d='M36 6 C 46 22 48 34 36 48 C 24 34 26 22 36 6 Z'/%3E%3Cpath d='M36 18 C 41 27 42 34 36 42 C 30 34 31 27 36 18 Z'/%3E%3Cpath d='M0 48 C 8 34 10 22 0 8 M72 48 C 64 34 62 22 72 8'/%3E%3Cpath d='M36 48 C 46 62 48 74 36 88 C 24 74 26 62 36 48 Z'/%3E%3Ccircle cx='36' cy='4' r='1.6'/%3E%3Ccircle cx='36' cy='88' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* the divider between chapters — a gold-thread paisley chain */
+.brocade-band {
+  position: relative;
+  display: block;
+  height: 24px;
+  margin: 0 auto;
+  max-width: 320px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24'%3E%3Cg fill='none' stroke='%23CDA45E' stroke-opacity='.55'%3E%3Cpath d='M22 3 C 29 8 30 15 22 21 C 14 15 15 8 22 3 Z'/%3E%3Cpath d='M22 21 C 28 20.5 31 17 32.5 12.5'/%3E%3Cpath d='M0 12 H 12 M32 12 H 44'/%3E%3C/g%3E%3Ccircle cx='16' cy='12' r='1.4' fill='%23CDA45E' fill-opacity='.55'/%3E%3Ccircle cx='28' cy='12' r='1.4' fill='%23CDA45E' fill-opacity='.55'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  pointer-events: none;
+}
+
+/* ═══ FLOATING AUDIO — the only piece of "chrome" allowed ═══════ */
+
+.audio-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-edge);
+  background: var(--glass-deep);
+  color: var(--night-ink);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(6px);
+  transition: color .25s var(--ease-out), border-color .25s var(--ease-out);
+}
+.audio-float[hidden] { display: none !important; }
+.audio-float:hover { color: var(--gilding); border-color: var(--line-strong); }
+.audio-float .icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ═══ BUTTONS — foil-edged farman tickets ═══════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 2px;
+  font-family: var(--font-caps);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.1;
+  position: relative;
+  transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out),
+              background-color .25s var(--ease-out), color .25s var(--ease-out);
+}
+.btn .icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn--rani {
+  background: linear-gradient(160deg, var(--gold-bright), var(--champagne) 55%, color-mix(in srgb, var(--champagne-soft) 82%, black 18%));
+  color: var(--palace-ink);
+  box-shadow: var(--shadow-soft), var(--shadow-gold);
+}
+.btn--rani:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift), var(--shadow-gold); }
+
+.btn--marigold {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--burgundy) 88%, black 12%), var(--burgundy-deep));
+  color: var(--gilding);
+  box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-soft);
+}
+.btn--marigold:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px var(--line-strong), var(--shadow-lift); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--night-ink);
+  box-shadow: inset 0 0 0 1px var(--glass-edge);
+}
+.btn--ghost:hover { color: var(--gilding); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.btn--ghost.btn--ink {
+  color: var(--ink-soft);
+  box-shadow: inset 0 0 0 1px var(--paper-line);
+}
+.btn--ghost.btn--ink:hover { color: var(--burgundy); box-shadow: inset 0 0 0 1px var(--line-strong); }
+
+/* ═══ REVEALS — everything arrives with a breath ════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity .9s var(--ease-soft) var(--reveal-delay, 0s),
+    transform .9s var(--ease-soft) var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+.reveal.in-view { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ═══ INTRO HANDOFF ═════════════════════════════════════════════ */
+
+body.intro-pending { overflow: hidden; height: 100dvh; }
+body.intro-pending #main-content { opacity: 0; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal,
+  .reveal.in-view { opacity: 1; transform: none; transition: none; }
+}

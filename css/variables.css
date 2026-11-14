@@ -1,0 +1,128 @@
+/* ═══════════════════════════════════════════════════════════════
+   ZARDOZI · variables.css — the design system
+   ---------------------------------------------------------------
+   A wedding card embroidered in gold thread on wine velvet.
+   The suite is built from five materials: wine velvet night,
+   warm ivory paper, antique zardozi gold, mehndi-green ink and
+   blush silk. Every colour token is overwritten at runtime by
+   main.js applyTheme(), so the editor moods recolour the whole
+   suite. Defaults mirror the zardozi preset.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── the zardozi palette (wine & gold) ────────────────────── */
+  --burgundy:      #7C2537;   /* wedding wine — primary accent    */
+  --burgundy-deep: #5E1626;   /* compressed wine                  */
+  --wine:          #3E0F20;   /* deep plum — strong ink           */
+  --crimson:       #BE7480;   /* rani rose — blossom accent       */
+  --champagne:     #CDA45E;   /* antique gold                     */
+  --champagne-soft:#A97F42;   /* burnished gold                   */
+  --parchment:     #F7ECDA;   /* warm cream wash                  */
+  --ivory:         #FAF3E3;   /* warm ivory page ground           */
+  --paper-raised:  #FFFAEC;   /* raised card paper                */
+  --night:         #2A0D18;   /* wine velvet night (dark bands)   */
+  --night-deep:    #1B070F;
+  --olive:         #47694B;   /* mehndi green ink                 */
+  --olive-deep:    #33513A;
+  --sage:          #A9B49C;
+  --rose:          #E7C8B4;   /* blush silk                       */
+  --ink:           #35222B;   /* deep plum-brown ink              */
+  --ink-soft:      #6E5158;
+  --charcoal:      #A28E8A;
+
+  /* ── derived golds ────────────────────────────────────────── */
+  --gold:          var(--champagne);
+  --gold-bright:   color-mix(in srgb, var(--champagne) 68%, #F6E3B4);
+  --gold-dim:      color-mix(in srgb, var(--champagne) 58%, var(--ink) 14%);
+  --gold-line:     color-mix(in srgb, var(--champagne) 52%, transparent);
+  --gold-faint:    color-mix(in srgb, var(--champagne) 26%, transparent);
+  --gold-ghost:    color-mix(in srgb, var(--champagne) 13%, transparent);
+
+  /* ── paper tones ──────────────────────────────────────────── */
+  --paper-line:    color-mix(in srgb, var(--champagne-soft) 50%, transparent);
+  --paper-wash:    color-mix(in srgb, var(--burgundy) 3%, var(--paper-raised));
+  --cream-deep:    color-mix(in srgb, var(--parchment) 62%, var(--ivory) 38%);
+
+  /* ── the night's own derived tones — candlelit velvet ──────── */
+  --sky-1:         var(--night-deep);
+  --sky-2:         color-mix(in srgb, var(--night) 84%, var(--burgundy) 16%);
+  --glass:         color-mix(in srgb, var(--night) 55%, transparent);
+  --glass-deep:    color-mix(in srgb, var(--night-deep) 72%, transparent);
+  --glass-edge:    color-mix(in srgb, var(--champagne) 26%, transparent);
+  --gilding:       color-mix(in srgb, var(--champagne) 86%, white 14%);
+  --gilding-soft:  color-mix(in srgb, var(--champagne) 55%, transparent);
+  --moonlit:       color-mix(in srgb, var(--parchment) 88%, var(--champagne) 12%);
+  --moonlit-soft:  color-mix(in srgb, var(--parchment) 58%, transparent);
+  --night-ink:     color-mix(in srgb, var(--parchment) 66%, transparent);
+  --night-faint:   color-mix(in srgb, var(--parchment) 48%, transparent);
+  --candle:        color-mix(in srgb, var(--champagne) 42%, #FFD98E 58%);
+  --ember:         #E8913F;   /* marigold ember — warm glows      */
+
+  /* ── luxury hardware — hairlines and soft shadow layers ───── */
+  --line:          color-mix(in srgb, var(--champagne) 44%, transparent);
+  --line-strong:   color-mix(in srgb, var(--champagne-soft) 72%, transparent);
+  --shadow-soft:   0 14px 40px -18px color-mix(in srgb, var(--night) 55%, transparent),
+                   0 4px 14px -8px color-mix(in srgb, var(--night) 30%, transparent);
+  --shadow-lift:   0 26px 60px -26px color-mix(in srgb, var(--night) 62%, transparent),
+                   0 8px 22px -12px color-mix(in srgb, var(--night) 38%, transparent);
+  --shadow-card:   var(--shadow-lift);
+  --shadow-gold:   0 1px 0 rgba(255, 248, 224, .6) inset;
+  --shadow-seal:   0 4px 10px color-mix(in srgb, var(--burgundy) 28%, transparent),
+                   0 14px 30px color-mix(in srgb, var(--burgundy) 16%, transparent);
+
+  /* ── type ───────────────────────────────────────────────────
+     Rozha One — Devanagari-rooted display, grand numerals ·
+     Cardo — the prose voice · Tangerine — the names, warm and
+     flowing · Shadows Into Light — marginalia · Karla — letterspaced
+     labels. All overwritten at runtime from config.fonts.       */
+  --font-editorial: 'Rozha One', 'Georgia', 'Times New Roman', serif;
+  --font-display:   'Cardo', 'Georgia', 'Times New Roman', serif;
+  --font-script:    'Tangerine', 'Snell Roundhand', 'Apple Chancery', cursive;
+  --font-hand:      'Shadows Into Light', 'Bradley Hand', 'Segoe Script', cursive;
+  --font-body:      'Karla', 'Helvetica Neue', Arial, sans-serif;
+  --font-ui:        'Karla', 'Helvetica Neue', Arial, sans-serif;
+  --font-deva:      'Rozha One', 'Tiro Devanagari Hindi', serif;
+  --font-caps:      'Karla', 'Helvetica Neue', sans-serif;
+
+  /* fluid scale */
+  --fs-eyebrow:   clamp(.62rem, 1.6vw, .72rem);
+  --fs-small:     clamp(.74rem, 1.8vw, .84rem);
+  --fs-body:      clamp(1.02rem, 2.2vw, 1.1rem);
+  --fs-lead:      clamp(1.12rem, 2.5vw, 1.24rem);
+  --fs-h2:        clamp(2.1rem, 6vw, 3.5rem);
+  --fs-h1:        clamp(2.6rem, 9vw, 5rem);
+  --fs-script:    clamp(3rem, 10.5vw, 6.4rem);
+
+  /* ── rhythm ───────────────────────────────────────────────── */
+  --container:     880px;
+  --gutter:        clamp(20px, 4.5vw, 48px);
+  --space-scene:   clamp(78px, 11vh, 138px);
+  --pad-gutter:    clamp(22px, 5vw, 44px);
+
+  --radius-card:   3px;
+  --radius-pill:   999px;
+
+  --ease-out:      cubic-bezier(.22, .61, .36, 1);
+  --ease-soft:     cubic-bezier(.22, .61, .21, 1);
+
+  /* ── suite materials — the card keeps its own palette ────────
+     (gold thread-work on warm ivory, wine silk on the night —
+      constant, so the card always reads true regardless of the
+      site mood)                                                 */
+  --palace-gold:    #A97F42;
+  --palace-gold-soft:#CDA45E;
+  --palace-ink:     #4A1424;
+  --palace-silk:    #3A0E1D;   /* silk ground inside the arch      */
+  --palace-arch:    #2A0D18;   /* the arch's own inner night       */
+}
+
+/* ── one stage system for every scene ─────────────────────────── */
+.scene {
+  --scene-bg: var(--ivory);
+  --scene-bg-deep: var(--cream-deep);
+  --scene-ink: var(--ink);
+  --scene-ink-soft: var(--ink-soft);
+  --scene-accent: var(--burgundy);
+  --scene-accent-soft: color-mix(in srgb, var(--burgundy) 68%, transparent);
+  --scene-gold: var(--champagne-soft);
+}

@@ -1,0 +1,1234 @@
+/* ═══════════════════════════════════════════════════════════════
+   ZARDOZI · sections.css — the walk through the wedding
+   ---------------------------------------------------------------
+   Wine velvet nights and warm ivory papers, alternating like
+   the pages of a folio. The hero: a doorway dressed for the
+   wedding — a real marigold toran strung above the card, roses
+   gathered at its foot, brass diyas and peacock feathers at its
+   sides, a rangoli drawn faint in gold thread behind.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══ SCENES — the shared stage ═════════════════════════════════ */
+
+.scene {
+  position: relative;
+  background: var(--scene-bg);
+  overflow: clip;
+}
+.scene-body {
+  position: relative;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-scene) var(--pad-gutter);
+  text-align: center;
+}
+
+/* warm ivory paper scenes */
+.scene--story, .scene--details, .scene--palette, .scene--venue, .scene--rsvp {
+  background:
+    radial-gradient(120% 60% at 50% 0%, color-mix(in srgb, var(--crimson) 5%, transparent) 0%, transparent 55%),
+    var(--ivory);
+}
+.scene--story::before, .scene--details::before, .scene--palette::before,
+.scene--venue::before, .scene--rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='90'%3E%3Cg fill='none' stroke='%237C2537' stroke-opacity='.05'%3E%3Cpath d='M36 6 C 46 22 48 34 36 48 C 24 34 26 22 36 6 Z'/%3E%3Cpath d='M36 18 C 41 27 42 34 36 42 C 30 34 31 27 36 18 Z'/%3E%3Cpath d='M0 48 C 8 34 10 22 0 8 M72 48 C 64 34 62 22 72 8'/%3E%3Cpath d='M36 48 C 46 62 48 74 36 88 C 24 74 26 62 36 48 Z'/%3E%3Ccircle cx='36' cy='4' r='1.6'/%3E%3Ccircle cx='36' cy='88' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* wine velvet night scenes */
+.scene--std, .scene--itinerary, .scene--countdown, .scene--closing {
+  background:
+    radial-gradient(120% 70% at 50% -8%, color-mix(in srgb, var(--burgundy) 34%, transparent) 0%, transparent 60%),
+    radial-gradient(80% 42% at 50% 110%, color-mix(in srgb, var(--ember) 10%, transparent) 0%, transparent 66%),
+    var(--night);
+  color: var(--night-ink);
+}
+.scene--std::before, .scene--itinerary::before, .scene--countdown::before,
+.scene--closing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='90'%3E%3Cg fill='none' stroke='%23CDA45E' stroke-opacity='.07'%3E%3Cpath d='M36 6 C 46 22 48 34 36 48 C 24 34 26 22 36 6 Z'/%3E%3Cpath d='M36 18 C 41 27 42 34 36 42 C 30 34 31 27 36 18 Z'/%3E%3Cpath d='M0 48 C 8 34 10 22 0 8 M72 48 C 64 34 62 22 72 8'/%3E%3Cpath d='M36 48 C 46 62 48 74 36 88 C 24 74 26 62 36 48 Z'/%3E%3Ccircle cx='36' cy='4' r='1.6'/%3E%3Ccircle cx='36' cy='88' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ═══ Ⅰ · THE HERO — the doorway dressed for the wedding ═══════ */
+
+.scene--hero {
+  background:
+    radial-gradient(120% 68% at 50% -6%, color-mix(in srgb, var(--burgundy) 40%, transparent) 0%, transparent 58%),
+    radial-gradient(85% 40% at 50% 108%, color-mix(in srgb, var(--ember) 13%, transparent) 0%, transparent 62%),
+    var(--night);
+}
+
+.kstage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(44px, 7vw, 78px) var(--pad-gutter) clamp(70px, 9vw, 110px);
+}
+
+/* the marigold toran strung above the card */
+.kstage__toran {
+  position: relative;
+  z-index: 4;
+  width: min(700px, 94vw);
+  margin-bottom: clamp(-64px, -7.5vw, -30px);
+  filter: drop-shadow(0 10px 22px rgba(10, 2, 6, .5));
+  pointer-events: none;
+  user-select: none;
+}
+
+/* the rangoli, drawn faint in gold thread behind the card */
+.kstage__rangoli {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  width: min(860px, 150%);
+  transform: translate(-50%, -50%);
+  opacity: .8;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* the proscenium frame — hairlines hugging the stage */
+.kstage__frame {
+  position: absolute;
+  inset: clamp(10px, 1.6vw, 20px);
+  z-index: 1;
+  pointer-events: none;
+}
+.kstage__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold-faint);
+  background:
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) top left / 26px 1px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) top left / 1px 26px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) top right / 26px 1px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) top right / 1px 26px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) bottom left / 26px 1px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) bottom left / 1px 26px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) bottom right / 26px 1px,
+    linear-gradient(var(--gilding-soft), var(--gilding-soft)) bottom right / 1px 26px;
+  background-repeat: no-repeat;
+}
+
+/* ── the card itself ─────────────────────────────────────────── */
+
+.kcard {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 100%);
+  background:
+    radial-gradient(140% 90% at 50% 0%, color-mix(in srgb, var(--crimson) 4%, transparent) 0%, transparent 50%),
+    linear-gradient(172deg, var(--paper-raised) 0%, var(--ivory) 60%, var(--parchment) 100%);
+  padding: clamp(2.4rem, 6vw, 3.4rem) clamp(1.6rem, 5vw, 3.2rem) clamp(2.2rem, 5vw, 3rem);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--champagne-soft) 62%, transparent),
+    0 0 0 6px color-mix(in srgb, var(--paper-raised) 92%, transparent),
+    0 0 0 7px color-mix(in srgb, var(--champagne-soft) 34%, transparent),
+    var(--shadow-lift);
+  border-radius: var(--radius-card);
+}
+
+/* zardozi corner flourishes — paisley buds stitched at each corner */
+.kcard::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cg fill='none' stroke='%23A97F42' stroke-opacity='.8'%3E%3Cpath d='M4 42 V 16 C 4 16 4.5 8 12 5 C 16 3.4 20 3 22 6 C 24 9 22 12.5 18.5 12.5 C 15.5 12.5 14 10 15.5 8'/%3E%3Ccircle cx='4' cy='42' r='1.6' fill='%23CDA45E' fill-opacity='.8' stroke='none'/%3E%3Cpath d='M0 22 H 3'/%3E%3C/g%3E%3C/svg%3E") top left / 46px 46px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cg fill='none' stroke='%23A97F42' stroke-opacity='.8'%3E%3Cpath d='M4 42 V 16 C 4 16 4.5 8 12 5 C 16 3.4 20 3 22 6 C 24 9 22 12.5 18.5 12.5 C 15.5 12.5 14 10 15.5 8'/%3E%3Ccircle cx='4' cy='42' r='1.6' fill='%23CDA45E' fill-opacity='.8' stroke='none'/%3E%3Cpath d='M0 22 H 3'/%3E%3C/g%3E%3C/svg%3E") top right / 46px 46px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cg fill='none' stroke='%23A97F42' stroke-opacity='.8'%3E%3Cpath d='M4 42 V 16 C 4 16 4.5 8 12 5 C 16 3.4 20 3 22 6 C 24 9 22 12.5 18.5 12.5 C 15.5 12.5 14 10 15.5 8'/%3E%3Ccircle cx='4' cy='42' r='1.6' fill='%23CDA45E' fill-opacity='.8' stroke='none'/%3E%3Cpath d='M0 22 H 3'/%3E%3C/g%3E%3C/svg%3E") bottom left / 46px 46px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cg fill='none' stroke='%23A97F42' stroke-opacity='.8'%3E%3Cpath d='M4 42 V 16 C 4 16 4.5 8 12 5 C 16 3.4 20 3 22 6 C 24 9 22 12.5 18.5 12.5 C 15.5 12.5 14 10 15.5 8'/%3E%3Ccircle cx='4' cy='42' r='1.6' fill='%23CDA45E' fill-opacity='.8' stroke='none'/%3E%3Cpath d='M0 22 H 3'/%3E%3C/g%3E%3C/svg%3E") bottom right / 46px 46px no-repeat;
+}
+
+/* ── the crown — invocation ──────────────────────────────────── */
+
+.kcard__crown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.kcard-om {
+  position: relative;
+  width: clamp(64px, 13vw, 84px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.kcard-om__petals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.kcard-om__glyph {
+  font-family: var(--font-deva);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.6vw, 2.5rem);
+  line-height: 1;
+  color: var(--burgundy);
+}
+
+.kcard-shloka {
+  font-family: var(--font-deva);
+  font-size: clamp(.86rem, 2.4vw, 1.02rem);
+  letter-spacing: .14em;
+  color: var(--champagne-soft);
+}
+
+.kcard-blessing {
+  color: var(--ink-soft);
+  letter-spacing: .3em;
+  font-size: .62rem;
+  margin-top: .3rem;
+}
+
+.kcard-invite {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.02rem, 2.6vw, 1.2rem);
+  color: var(--ink-soft);
+}
+
+/* the paisley rule — a thread with a gold kairi at its heart */
+.kcard-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(300px, 84%);
+  margin-inline: auto;
+}
+.kcard-rule i {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong) 30%, var(--line-strong) 70%, transparent);
+}
+.kcard-rule svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: var(--champagne-soft);
+  stroke-width: 1.5;
+}
+.kcard-rule svg path:last-child { fill: var(--gold-faint); stroke: none; }
+
+/* ── the body — names & particulars ──────────────────────────── */
+
+.kcard__rect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .95rem;
+}
+
+.kcard-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .1rem;
+  outline: none;
+}
+.kcard-name {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: 1.06;
+  color: var(--wine);
+}
+.kcard-and {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4.6vw, 2.3rem);
+  line-height: 1;
+  color: var(--crimson);
+  margin-block: .12rem;
+}
+
+.kcard-date { display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+.kcard-date-week { color: var(--ink-soft); }
+.kcard-date-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2.6vw, 20px);
+}
+.kcard-date-side { color: var(--ink-soft); }
+.kcard-date-orn { width: 20px; height: 34px; }
+.kcard-date-orn--flip { transform: scaleX(-1); }
+.kcard-date-num {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.5rem, 7vw, 3.6rem);
+  line-height: 1;
+  color: var(--burgundy);
+}
+
+.kcard-divider { width: min(150px, 46%); height: auto; }
+
+.kcard-muhurat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--olive-deep);
+}
+.kcard-muhurat-sep { color: var(--champagne-soft); }
+
+.kcard-venue { display: flex; flex-direction: column; gap: .3rem; max-width: 46ch; }
+.kcard-venue-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--champagne-soft);
+}
+.kcard-venue-label svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.kcard-venue-name {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.12rem, 3vw, 1.4rem);
+  line-height: 1.3;
+  color: var(--ink);
+}
+.kcard-venue-address {
+  font-family: var(--font-caps);
+  font-size: .74rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+}
+
+.kcard-closing {
+  font-size: clamp(1.9rem, 5.4vw, 2.6rem);
+  color: var(--burgundy);
+  margin-top: .2rem;
+}
+
+.kcard-heart {
+  width: 19px;
+  height: 19px;
+  fill: var(--crimson);
+  stroke: none;
+}
+
+/* ── the gathered corners & friends ──────────────────────────── */
+
+.korn {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 3;
+}
+
+/* the rose altar gathered at the foot of the card */
+.korn--swag {
+  left: 2%;
+  right: 2%;
+  width: 96%;
+  bottom: -17%;
+}
+
+.korn--diya-bl { width: 15%; left: 4.5%; bottom: -6%; }
+.korn--diya-br { width: 15%; right: 4.5%; bottom: -6%; transform: scaleX(-1); }
+
+.korn--feather-l {
+  width: 12%;
+  left: -7.5%;
+  top: 40%;
+  transform: rotate(26deg);
+  opacity: 1;
+}
+.korn--feather-r {
+  width: 12%;
+  right: -7.5%;
+  top: 33%;
+  transform: scaleX(-1) rotate(26deg);
+  opacity: 1;
+}
+
+.korn--sparkle {
+  inset: -6% 0;
+  width: 100%;
+  height: 112%;
+  opacity: .55;
+}
+
+/* scroll invitation */
+.hero-scroll {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(2.6rem, 6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--night-faint);
+  transition: color .3s var(--ease-out);
+}
+.hero-scroll:hover { color: var(--gilding-soft); }
+.hero-scroll__block {
+  font-family: var(--font-caps);
+  font-size: .58rem;
+  letter-spacing: .42em;
+  text-indent: .42em;
+}
+.hero-scroll__arrow {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: hero-nudge 2.6s var(--ease-soft) infinite;
+}
+@keyframes hero-nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ═══ Ⅱ · THEIR STORY — ivory folio with the mehndi portrait ═══ */
+
+.scene--story .scene-body { text-align: left; }
+.scene--story .kicker { justify-content: flex-start; }
+.scene--story .kicker::before { display: none; }
+.scene--story .display { margin-bottom: clamp(1.4rem, 3vw, 2rem); }
+.scene--story .prose { max-width: 62ch; margin-inline: auto; }
+.scene--story .prose + .prose { margin-top: 1.1rem; }
+
+.chapter-num { inset-inline-start: 2%; }
+
+/* the mehndi portrait, framed in a jharokha arch */
+.story-frame {
+  position: relative;
+  width: min(400px, 82%);
+  margin: clamp(2.4rem, 5vw, 3.4rem) auto clamp(1.6rem, 3.4vw, 2.2rem);
+  padding: clamp(26px, 6vw, 34px) clamp(26px, 6vw, 34px) clamp(38px, 8vw, 48px);
+}
+.story-frame__arch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.story-frame__img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 400 / 470;
+  object-fit: cover;
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+  box-shadow: var(--shadow-lift);
+}
+.story-frame__caption {
+  margin-top: .8rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.story-quote {
+  max-width: 54ch;
+  margin: clamp(2rem, 4.6vw, 3rem) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  text-align: center;
+  padding: clamp(1.4rem, 3.4vw, 2rem) clamp(1.2rem, 3vw, 1.8rem);
+  background: var(--paper-wash);
+  box-shadow:
+    inset 0 0 0 1px var(--paper-line),
+    var(--shadow-soft);
+  border-radius: var(--radius-card);
+}
+.story-quote__rule { width: min(220px, 70%); height: auto; }
+.story-quote__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.42rem);
+  line-height: 1.45;
+  color: var(--wine);
+}
+.story-quote__label { color: var(--ink-soft); letter-spacing: .18em; font-weight: 400; }
+
+.story-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: clamp(1.6rem, 3.6vw, 2.4rem);
+  text-align: center;
+}
+.story-note-credit { font-size: .82em; color: var(--charcoal); }
+
+.story-captions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.6rem, 4vw, 2.8rem);
+  margin-top: clamp(2rem, 4.4vw, 3rem);
+}
+.story-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-caps);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  color: var(--ink-soft);
+}
+.story-caption svg { width: 58px; height: 40px; }
+
+/* ═══ Ⅲ · SAVE THE DATE — the shagun plate ═════════════════════ */
+
+.scene-body--std {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  max-width: 720px;
+  padding-block: clamp(90px, 13vh, 150px);
+}
+
+.std-band {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: 58rem;
+  height: 30rem;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--ember) 14%, transparent), transparent 72%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.std-flames {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.std-flame {
+  position: absolute;
+  bottom: 8%;
+  width: clamp(120px, 22vw, 210px);
+  mix-blend-mode: screen;
+  opacity: .95;
+  -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
+  mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
+  pointer-events: none;
+  user-select: none;
+}
+.std-flame--l { left: 2%; }
+.std-flame--r { right: 2%; transform: scaleX(-1); }
+
+.std-kalash {
+  width: clamp(74px, 13vw, 104px);
+  filter: drop-shadow(0 10px 22px rgba(10, 2, 6, .6));
+}
+
+.std-title {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  color: var(--gilding);
+}
+.std-crossing {
+  font-size: clamp(2.1rem, 6.4vw, 3.2rem);
+  color: var(--crimson);
+}
+.std-numerals {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 4.4vw, 2.1rem);
+  letter-spacing: .22em;
+  color: var(--moonlit);
+  margin-top: .4rem;
+}
+.std-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(.98rem, 2.4vw, 1.14rem);
+  color: var(--night-faint);
+  max-width: 46ch;
+}
+.std-note { font-size: var(--fs-small); color: var(--night-faint); }
+
+.std-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1.4rem;
+}
+
+.std-seal {
+  position: relative;
+  width: clamp(84px, 15vw, 116px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin-top: clamp(1.6rem, 3.4vw, 2.2rem);
+  filter: drop-shadow(0 10px 24px rgba(10, 2, 6, .55));
+}
+.std-seal .seal__art { width: 100%; height: 100%; object-fit: contain; }
+.std-seal .seal__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-bottom: .16em;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  color: var(--palace-ink);
+  text-shadow: 0 1px 0 rgba(255, 248, 224, .5);
+}
+
+/* ═══ Ⅳ · THE CELEBRATIONS — the programme niches ═══════════════ */
+
+.details-intro { max-width: 52ch; margin: .8rem auto 0; }
+
+.programme {
+  list-style: none;
+  max-width: 780px;
+  margin: clamp(2.4rem, 5vw, 3.6rem) auto 0;
+  padding: 0 var(--pad-gutter);
+  position: relative;
+}
+.programme::before {
+  content: "";
+  position: absolute;
+  top: 4%;
+  bottom: 4%;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line-strong) 12%, var(--line-strong) 88%, transparent);
+}
+
+.programme-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: clamp(1.2rem, 3.4vw, 2.4rem);
+  align-items: center;
+  padding-block: clamp(1.2rem, 2.6vw, 1.9rem);
+}
+.programme-item .programme-niche { grid-column: 1; grid-row: 1; }
+.programme-item .programme-text { grid-column: 2; grid-row: 1; }
+.programme-item:nth-child(odd) .programme-text {
+  text-align: right;
+  justify-items: end;
+}
+.programme-item:nth-child(even) { grid-template-columns: 1fr 108px; }
+.programme-item:nth-child(even) .programme-niche { grid-column: 2; grid-row: 1; }
+.programme-item:nth-child(even) .programme-text {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+  justify-items: end;
+}
+
+.programme-niche {
+  position: relative;
+  width: clamp(76px, 12vw, 100px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+}
+.programme-arch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: color-mix(in srgb, var(--parchment) 65%, transparent);
+}
+.parch-line {
+  stroke: var(--champagne-soft);
+  stroke-width: 1.6;
+  fill: none;
+}
+.parch-line--inner { stroke-width: 1; stroke-opacity: .7; }
+.parch-bead { fill: var(--champagne-soft); stroke: none; }
+.programme-orn {
+  position: relative;
+  width: 55%;
+  height: 55%;
+}
+.programme-orn .orn-line { stroke-width: 1.8; }
+
+.programme-text { display: grid; gap: .22rem; }
+.programme-index {
+  font-family: var(--font-editorial);
+  font-size: 1.02rem;
+  color: var(--champagne-soft);
+  letter-spacing: .2em;
+}
+.programme-name {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.3rem, 3.4vw, 1.7rem);
+  line-height: 1.2;
+  color: var(--wine);
+}
+.programme-value {
+  font-family: var(--font-caps);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+.programme-note {
+  font-family: var(--font-display);
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+.programme-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: .35rem;
+}
+.programme-foot i {
+  width: 30px;
+  height: 1px;
+  background: var(--line);
+}
+.programme-foot b {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--champagne-soft);
+  background: var(--gold-faint);
+}
+
+/* the particulars — a keepsake plate */
+.particulars {
+  max-width: 780px;
+  margin: clamp(2.6rem, 5.4vw, 3.8rem) auto 0;
+  padding: clamp(1.8rem, 4vw, 2.6rem) clamp(1.4rem, 3.6vw, 2.4rem);
+  background: var(--paper-wash);
+  box-shadow:
+    inset 0 0 0 1px var(--paper-line),
+    inset 0 0 0 6px transparent,
+    var(--shadow-soft);
+  border-radius: var(--radius-card);
+}
+.particulars-eyebrow {
+  display: block;
+  text-align: center;
+  color: var(--champagne-soft);
+  margin-bottom: 1.4rem;
+}
+.particulars-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.particular {
+  display: grid;
+  gap: .3rem;
+  padding: .2rem clamp(.8rem, 2vw, 1.4rem);
+  align-content: start;
+}
+.particular:nth-child(n + 2) { border-left: 1px solid var(--paper-line); }
+.particular-label { color: var(--champagne-soft); font-size: .58rem; }
+.particular-value {
+  font-family: var(--font-editorial);
+  font-size: clamp(.94rem, 2vw, 1.06rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.particular-note {
+  font-family: var(--font-display);
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ═══ Ⅴ · THE PALETTE — marigold rounds on ivory ════════════════ */
+
+.palette-intro { max-width: 56ch; margin: .8rem auto 0; }
+
+.palette-swatches {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.6rem, 4vw, 2.6rem);
+  margin-top: clamp(2rem, 4.4vw, 3rem);
+}
+.palette-swatches li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.swatch {
+  width: clamp(52px, 9vw, 68px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--champagne-soft) 55%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--paper-raised) 90%, transparent),
+    0 0 0 5px color-mix(in srgb, var(--champagne-soft) 34%, transparent),
+    var(--shadow-soft);
+}
+.swatch-name {
+  font-family: var(--font-caps);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  max-width: 12ch;
+}
+
+.dresscode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  max-width: 520px;
+  margin: clamp(2.4rem, 5vw, 3.4rem) auto 0;
+  padding: clamp(1.6rem, 3.6vw, 2.2rem) clamp(1.2rem, 3vw, 1.8rem);
+  background: var(--paper-wash);
+  box-shadow: inset 0 0 0 1px var(--paper-line);
+  border-radius: var(--radius-card);
+}
+.dresscode-feather {
+  width: clamp(44px, 8vw, 58px);
+  margin-bottom: .3rem;
+  transform: rotate(16deg);
+}
+.dresscode-label { color: var(--champagne-soft); font-size: .6rem; }
+.dresscode-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--wine);
+}
+.dresscode-note {
+  font-family: var(--font-display);
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ═══ Ⅵ · THE FESTIVITIES — the garland of moments ══════════════ */
+
+.day-words {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.8rem, 4vw, 2.8rem) clamp(1.4rem, 3.4vw, 2.4rem);
+  margin-top: clamp(2.4rem, 5vw, 3.6rem);
+  padding-top: 18px;
+  position: relative;
+}
+.day-words::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line) 10%, var(--gold-line) 90%, transparent);
+}
+.day-word {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: clamp(96px, 14vw, 128px);
+  text-align: center;
+}
+.day-word__bulb {
+  width: 30px;
+  height: 30px;
+  color: var(--champagne);
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--ember) 65%, transparent));
+}
+.day-word__bulb svg { width: 100%; height: 100%; }
+.day-word__text {
+  font-family: var(--font-caps);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--moonlit-soft);
+}
+
+/* ═══ Ⅶ · THE MANDAPAM — the place, framed in an arch ═══════════ */
+
+.venue-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.25;
+  color: var(--wine);
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.venue-stage {
+  position: relative;
+  width: min(620px, 92%);
+  margin: clamp(2.2rem, 5vw, 3.4rem) auto clamp(1.4rem, 3vw, 2rem);
+  padding: clamp(12px, 2.4vw, 18px);
+}
+.venue-frame {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+  border: 1.6px solid color-mix(in srgb, var(--champagne-soft) 70%, transparent);
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 5px color-mix(in srgb, var(--paper-raised) 80%, transparent),
+    inset 0 0 0 6px color-mix(in srgb, var(--champagne-soft) 40%, transparent),
+    var(--shadow-lift);
+}
+.venue-frame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--champagne-soft);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--paper-raised) 80%, transparent);
+}
+.venue-mandap {
+  display: block;
+  width: 100%;
+  aspect-ratio: 620 / 465;
+  object-fit: cover;
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+}
+.venue-flames {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 42%;
+  bottom: 34%;
+  pointer-events: none;
+}
+.venue-flame {
+  position: absolute;
+  bottom: 0;
+  width: 32%;
+  mix-blend-mode: screen;
+  opacity: .95;
+  -webkit-mask-image: radial-gradient(closest-side, #000 52%, transparent 96%);
+  mask-image: radial-gradient(closest-side, #000 52%, transparent 96%);
+}
+.venue-flame--l { left: 0; }
+.venue-flame--r { right: 0; transform: scaleX(-1); }
+.venue-petals {
+  display: block;
+  width: 86%;
+  margin: -8px auto 0;
+  opacity: .92;
+  -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent);
+  mask-image: linear-gradient(180deg, #000 62%, transparent);
+}
+
+.venue-description { max-width: 58ch; margin: 0 auto; }
+
+.venue-sublines {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  margin-top: 1.6rem;
+}
+.venue-sublines .sub {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.venue-sublines .label-caps { color: var(--champagne-soft); font-size: .6rem; }
+.venue-sublines em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.venue-address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 1.4rem;
+  font-family: var(--font-caps);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+.venue-address .icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: var(--champagne-soft);
+  stroke-width: 1.6;
+}
+.venue-actions { margin-top: 1.7rem; }
+
+/* ═══ Ⅷ · THE COUNTDOWN — the rangoli ring ══════════════════════ */
+
+.scene--countdown .scene-body { padding-block: clamp(120px, 16vh, 190px); }
+
+.countdown-wreath {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(520px, 92vw);
+  transform: translate(-50%, -50%);
+  opacity: .75;
+  pointer-events: none;
+}
+
+.count-script {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.9rem, 5.6vw, 3.1rem);
+  line-height: 1.22;
+  color: var(--moonlit);
+  max-width: 21ch;
+  margin-inline: auto;
+}
+.count-script em {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.1em;
+  color: var(--gilding);
+  display: block;
+}
+
+.count-clock {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 2vw, 16px);
+  margin-top: clamp(2rem, 4.6vw, 3rem);
+}
+.count-unit {
+  width: clamp(84px, 14vw, 108px);
+  padding: clamp(14px, 2.4vw, 20px) 6px clamp(11px, 2vw, 15px);
+  background: var(--glass-deep);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    inset 0 0 24px color-mix(in srgb, var(--ember) 5%, transparent);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  backdrop-filter: blur(4px);
+}
+.count-num {
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 5.6vw, 2.9rem);
+  line-height: 1;
+  color: var(--gilding);
+  font-variant-numeric: tabular-nums;
+}
+.count-label { color: var(--night-faint); font-size: .56rem; }
+
+.count-summary {
+  margin-top: 1.3rem;
+  font-family: var(--font-caps);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--night-faint);
+}
+.count-message {
+  margin-top: 1.3rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--moonlit-soft);
+}
+.count-date { margin-top: .9rem; color: var(--night-faint); font-weight: 400; }
+.count-date__zone { color: var(--charcoal); }
+
+/* ═══ Ⅸ · KINDLY RESPOND — the reply card ═══════════════════════ */
+
+.scene--rsvp .scene-body { padding-block: clamp(90px, 13vh, 150px); }
+
+.watermark-script {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(5.4rem, 17vw, 13rem);
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--burgundy) 6%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.rsvp-card {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.4rem, 4.6vw, 3rem) clamp(1.8rem, 4vw, 2.6rem);
+  background: var(--paper-raised);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--champagne-soft) 58%, transparent),
+    0 0 0 6px color-mix(in srgb, var(--paper-raised) 90%, transparent),
+    0 0 0 7px color-mix(in srgb, var(--champagne-soft) 30%, transparent),
+    var(--shadow-lift);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.rsvp-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.9rem, 5.4vw, 2.7rem);
+  color: var(--wine);
+  margin-top: .5rem;
+}
+.rsvp-deadline {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: .5rem;
+}
+
+.rsvp-ornament { display: grid; place-items: center; margin: 1.2rem 0 .4rem; }
+.rsvp-ornament svg { width: min(300px, 84%); height: auto; }
+
+/* ═══ Ⅹ · A CLOSING NOTE — the last page of the folio ═══════════ */
+
+.scene--closing .scene-body {
+  padding-block: clamp(110px, 15vh, 170px) clamp(80px, 11vh, 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+}
+
+.closing-bloom {
+  position: absolute;
+  top: -34px;
+  width: clamp(150px, 24vw, 230px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+.closing-bloom--l { left: -34px; transform: rotate(-6deg); }
+.closing-bloom--r { right: -34px; transform: scaleX(-1) rotate(-6deg); }
+
+.closing-script {
+  font-family: var(--font-caps);
+  font-size: .64rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--night-faint);
+}
+.closing-names {
+  font-size: var(--fs-script);
+  color: var(--rose);
+  text-shadow: 0 2px 34px color-mix(in srgb, var(--ember) 32%, transparent);
+}
+.closing-date {
+  color: var(--night-faint);
+  font-weight: 400;
+  letter-spacing: .2em;
+  max-width: 56ch;
+  line-height: 1.9;
+}
+.closing-message {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.6vw, 1.16rem);
+  line-height: 1.7;
+  color: var(--moonlit-soft);
+  max-width: 52ch;
+}
+.closing-seal {
+  position: relative;
+  width: clamp(84px, 15vw, 116px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin-top: 1.2rem;
+  filter: drop-shadow(0 10px 24px rgba(10, 2, 6, .55));
+}
+.closing-seal .seal__art { width: 100%; height: 100%; object-fit: contain; }
+.closing-seal .seal__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-bottom: .16em;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  color: var(--palace-ink);
+  text-shadow: 0 1px 0 rgba(255, 248, 224, .5);
+}
+.closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1.8rem;
+}
+
+.closing-petals {
+  position: relative;
+  display: block;
+  width: min(680px, 88%);
+  margin: 0 auto clamp(26px, 4vh, 40px);
+  opacity: .85;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 84%, transparent);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 84%, transparent);
+}
+
+/* ═══ FOOTER ════════════════════════════════════════════════════ */
+
+.footer {
+  background: var(--ivory);
+  text-align: center;
+  padding: clamp(2.6rem, 6vw, 4rem) var(--pad-gutter) clamp(2.2rem, 5vw, 3.2rem);
+  border-top: 1px solid var(--paper-line);
+}
+.footer-ornament {
+  width: min(300px, 78%);
+  height: auto;
+  margin-bottom: 1.4rem;
+}
+.footer .small { margin-top: .35rem; }
+.footer-credit a {
+  color: var(--burgundy);
+  text-decoration-color: var(--gold-line);
+  text-underline-offset: 3px;
+}
+.footer-credit a:hover { text-decoration-color: var(--burgundy); }
+
+/* ═══ MOTION PREFERENCES ════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll__arrow { animation: none; }
+  .std-band { animation: none; }
+}

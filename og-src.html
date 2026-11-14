@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zardozi OG card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tangerine:wght@700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  .stage {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    background:
+      radial-gradient(120% 80% at 50% -8%, rgba(124, 37, 55, .5) 0%, transparent 60%),
+      radial-gradient(85% 45% at 50% 110%, rgba(232, 145, 63, .14) 0%, transparent 62%),
+      #1B070F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='90'%3E%3Cg fill='none' stroke='%23CDA45E' stroke-opacity='.08'%3E%3Cpath d='M36 6 C 46 22 48 34 36 48 C 24 34 26 22 36 6 Z'/%3E%3Cpath d='M36 18 C 41 27 42 34 36 42 C 30 34 31 27 36 18 Z'/%3E%3Cpath d='M0 48 C 8 34 10 22 0 8 M72 48 C 64 34 62 22 72 8'/%3E%3Cpath d='M36 48 C 46 62 48 74 36 88 C 24 74 26 62 36 48 Z'/%3E%3Ccircle cx='36' cy='4' r='1.6'/%3E%3Ccircle cx='36' cy='88' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .toran {
+    position: relative;
+    width: 740px;
+    margin-top: -78px;
+    margin-bottom: -122px;
+    filter: drop-shadow(0 10px 22px rgba(10, 2, 6, .55));
+  }
+  .card {
+    position: relative;
+    width: 540px;
+    background: linear-gradient(172deg, #FFFAEC 0%, #FAF3E3 60%, #F7ECDA 100%);
+    box-shadow:
+      0 0 0 1px rgba(169, 127, 66, .6),
+      0 0 0 6px rgba(255, 250, 236, .92),
+      0 0 0 7px rgba(169, 127, 66, .34),
+      0 26px 60px -26px rgba(10, 2, 6, .62);
+    padding: 30px 36px 24px;
+    text-align: center;
+  }
+  .shloka {
+    font-family: 'Rozha One', serif;
+    font-size: 15px;
+    letter-spacing: .12em;
+    color: #A97F42;
+    margin-bottom: 3px;
+  }
+  .blessing {
+    font-family: 'Karla', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #6E5158;
+    margin-bottom: 3px;
+  }
+  .lead {
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #6E5158;
+  }
+  .rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 260px;
+    margin: 10px auto;
+  }
+  .rule i { flex: 1; height: 1px; background: rgba(169, 127, 66, .5); }
+  .rule svg { width: 17px; height: 17px; flex: 0 0 auto; fill: none; stroke: #A97F42; stroke-width: 1.5; }
+  .names {
+    font-family: 'Rozha One', serif;
+    font-size: 46px;
+    line-height: 1.04;
+    color: #3E0F20;
+  }
+  .and {
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 34px;
+    color: #BE7480;
+    line-height: .9;
+  }
+  .date {
+    margin-top: 8px;
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    text-transform: uppercase;
+    color: #7C2537;
+  }
+  .venue {
+    margin-top: 4px;
+    font-family: 'Karla', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    color: #6E5158;
+  }
+  .seal {
+    position: absolute;
+    right: -30px;
+    bottom: -26px;
+    width: 84px;
+    height: 84px;
+    filter: drop-shadow(0 10px 20px rgba(10, 2, 6, .55));
+  }
+  .corner {
+    position: absolute;
+    width: 220px;
+    opacity: .92;
+  }
+  .corner--bl { left: -30px; bottom: -40px; transform: rotate(9deg); }
+  .corner--br { right: -30px; bottom: -40px; transform: scaleX(-1) rotate(9deg); }
+  .flame {
+    position: absolute;
+    width: 200px;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
+    mask-image: radial-gradient(closest-side, #000 55%, transparent 96%);
+  }
+  .flame--l { left: 60px; bottom: -8px; }
+  .flame--r { right: 60px; bottom: -8px; transform: scaleX(-1); }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <img class="corner corner--bl" src="assets/art/roses-cluster.png" alt="">
+    <img class="corner corner--br" src="assets/art/roses-cluster.png" alt="">
+    <img class="flame flame--l" src="assets/art/diya-lit.jpg" alt="">
+    <img class="flame flame--r" src="assets/art/diya-lit.jpg" alt="">
+    <img class="toran" src="assets/art/toran.png" alt="">
+    <div class="card">
+      <p class="shloka">॥ श्री गणेशाय नमः ॥</p>
+      <p class="blessing">With the divine blessings of our families</p>
+      <p class="lead">We cordially invite you to celebrate the wedding of</p>
+      <div class="rule"><i></i><svg viewBox="0 0 22 22"><path d="M11 2 C 15 6.5 16 11 11 20 C 6 11 7 6.5 11 2 Z"/><path d="M11 9 C 12.4 11.5 12.4 14 11 16.6 C 9.6 14 9.6 11.5 11 9 Z"/></svg><i></i></div>
+      <p class="names">Arjun<br><span class="and">and</span><br>Meghana</p>
+      <p class="date">Saturday · 22 · 05 · 2027</p>
+      <p class="venue">Sri Lakshmi Venkateshwara Kalyana Mandapam · Bengaluru</p>
+      <img class="seal" src="assets/art/seal-gold.png" alt="">
+    </div>
+  </div>
+</body>
+</html>
